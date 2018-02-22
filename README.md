@@ -1,1 +1,1 @@
-# Mega-Sena-Estatisticas
+# Mega Sena Estatisticas
