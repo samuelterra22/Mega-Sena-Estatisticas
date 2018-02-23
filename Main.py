@@ -7,9 +7,7 @@ import requests
 from bs4 import BeautifulSoup
 import bs4, sys
 
-STORAGE_PATH = "/tmp/mega"
-FILENAME = "resultados.zip"
-FILE_PATH = FILENAME
+FILE_PATH = "resultados.zip"
 INSIDE_FILENAME = "d_megasc.htm"
 URL = "http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_mgsasc.zip"
 
@@ -34,9 +32,8 @@ with open("d_megasc.htm", 'r', encoding="utf8", errors='ignore') as f:
 
 soup = bs4.BeautifulSoup(content, "lxml")
 
-# for node in soup.findAll('html'):
-#     print(node.findAll(text=True))
+table = soup.find_all('table')
 
-for i, tr in enumerate(soup.find_all('table')):
+for i, tr in enumerate(table):
     for td in tr:
         print(td)
