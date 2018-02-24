@@ -2,10 +2,8 @@
 
 import zipfile
 
-import re
+import bs4
 import requests
-from bs4 import BeautifulSoup
-import bs4, sys
 
 FILE_PATH = "resultados.zip"
 INSIDE_FILENAME = "d_megasc.htm"
@@ -34,6 +32,12 @@ soup = bs4.BeautifulSoup(content, "lxml")
 
 table = soup.find_all('table')
 
-for i, tr in enumerate(table):
+trs = soup.find_all('tr')
+
+for tr in trs:
+    print('-------------------------------------------')
     for td in tr:
-        print(td)
+        if td != "\n":
+            print('+ ' + str(td.text.replace('\n', '')))
+
+    print('-------------------------------------------')
