@@ -180,3 +180,171 @@ class Sorteio(object):
         :return: None.
         """
         self._arrecadacao_total = arrecadacao_total
+
+    def get_ganhadores_sena(self):
+        """
+        Metodo responsavel por retornar os ganhadores da sena do Sorteio.
+        :return: Ganhadores da sena do Sorteio.
+        """
+        return self._ganhadores_sena
+
+    def set_ganhadores_sena(self, ganhadores_sena):
+        """
+        Metodo responsavel por setar os ganhadores da sena do Sorteio.
+        :return: None.
+        """
+        self._ganhadores_sena = ganhadores_sena
+
+    def get_cidade(self):
+        """
+        Metodo responsavel por retornar as cidades do Sorteio.
+        :return: Cidade do Sorteio.
+        """
+        return self._ganhadores_sena
+
+    def set_cidade(self, cidade):
+        """
+        Metodo responsavel por setar as cidades do Sorteio.
+        :return: None.
+        """
+        self._cidade = cidade
+
+    def get_uf(self):
+        """
+        Metodo responsavel por retornar os UFs do Sorteio.
+        :return: UFs do Sorteio.
+        """
+        return self._ganhadores_sena
+
+    def set_uf(self, uf):
+        """
+        Metodo responsavel por setar os UFs do Sorteio.
+        :return: None.
+        """
+        self._uf = uf
+
+    def get_rateio_sena(self):
+        """
+        Metodo responsavel por retornar o rateio da sena do Sorteio.
+        :return: Rateio da sena do Sorteio.
+        """
+        return self._rateio_sena
+
+    def set_rateio_sena(self, rateio_sena):
+        """
+        Metodo responsavel por setar o rateio da sena do Sorteio.
+        :return: None.
+        """
+        self._rateio_sena = rateio_sena
+
+    def get_ganhadores_quina(self):
+        """
+        Metodo responsavel por retornar os ganhadores da quina do Sorteio.
+        :return: Rateio da sena do Sorteio.
+        """
+        return self._ganhadores_quina
+
+    def set_ganhadores_quina(self, ganhadores_quina):
+        """
+        Metodo responsavel por setar os ganhadores da quina do Sorteio.
+        :return: None.
+        """
+        self._ganhadores_quina = ganhadores_quina
+
+    def get_rateio_quina(self):
+        """
+        Metodo responsavel por retornar o rateio da quina do Sorteio.
+        :return: Rateio da quina do Sorteio.
+        """
+        return self._rateio_quina
+
+    def set_rateio_quina(self, rateio_quina):
+        """
+        Metodo responsavel por setar o rateio da sena do Sorteio.
+        :return: None.
+        """
+        self._rateio_quina = rateio_quina
+
+    def get_ganhadores_quadra(self):
+        """
+        Metodo responsavel por retornar os ganhadores da quadra do Sorteio.
+        :return: Rateio da sena do Sorteio.
+        """
+        return self._ganhadores_quadra
+
+    def set_ganhadores_quadra(self, ganhadores_quadra):
+        """
+        Metodo responsavel por setar os ganhadores da quadra do Sorteio.
+        :return: None.
+        """
+        self._ganhadores_quadra = ganhadores_quadra
+
+    def get_rateio_quadra(self):
+        """
+        Metodo responsavel por retornar o rateio da quadra do Sorteio.
+        :return: Rateio da quadra do Sorteio.
+        """
+        return self._rateio_quadra
+
+    def set_rateio_quadra(self, rateio_quadra):
+        """
+        Metodo responsavel por setar o rateio da sena do Sorteio.
+        :return: None.
+        """
+        self._rateio_quadra = rateio_quadra
+
+    def get_acumulado(self):
+        """
+        Metodo responsavel por retornar o acumulado do Sorteio.
+        :return: Acumulado do Sorteio.
+        """
+        return self._acumulado
+
+    def set_acumulado(self, acumulado):
+        """
+        Metodo responsavel por setar o acumulado do Sorteio.
+        :return: None.
+        """
+        self._acumulado = acumulado
+
+    def get_valor_acumulado(self):
+        """
+        Metodo responsavel por retornar o valor acumulado do Sorteio.
+        :return: Valor acumulado do Sorteio.
+        """
+        return self._acumulado
+
+    def set_valor_acumulado(self, valor_acumulado):
+        """
+        Metodo responsavel por setar o valor acumulado do Sorteio.
+        :return: None.
+        """
+        self._valor_acumulado = valor_acumulado
+
+    def get_estimativa_premio(self):
+        """
+        Metodo responsavel por retornar a estimativa do premio do Sorteio.
+        :return: A estimativa do premio do Sorteio.
+        """
+        return self._acumulado
+
+    def set_estimativa_premio(self, estimativa_premio):
+        """
+        Metodo responsavel por setar a estimativa do premio do Sorteio.
+        :return: None.
+        """
+        self._estimativa_premio = estimativa_premio
+
+    def get_acumulado_mega_da_virada(self):
+        """
+        Metodo responsavel por retornar o acumulado da mega da virada do Sorteio.
+        :return: O acumulado da mega da virada do Sorteio.
+        """
+        return self._acumulado
+
+    def set_acumulado_mega_da_virada(self, acumulado_mega_da_virada):
+        """
+        Metodo responsavel por setar o acumulado da mega da virada do Sorteio.
+        :return: None.
+        """
+        self._acumulado_mega_da_virada = acumulado_mega_da_virada
