@@ -166,3 +166,17 @@ class Sorteio(object):
         :return: None.
         """
         self._dezena_6 = dezena_6
+
+    def get_arrecadacao_total(self):
+        """
+        Metodo responsavel por retornar a arrecadacao total do Sorteio.
+        :return: Arrecadacao total do Sorteio.
+        """
+        return self._arrecadacao_total
+
+    def set_arrecadacao_total(self, arrecadacao_total):
+        """
+        Metodo responsavel por setar a arrecadacao total do Sorteio.
+        :return: None.
+        """
+        self._arrecadacao_total = arrecadacao_total
