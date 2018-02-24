@@ -39,5 +39,4 @@ for tr in trs:
     for td in tr:
         if td != "\n":
             print('+ ' + str(td.text.replace('\n', '')))
-
     print('-------------------------------------------')
