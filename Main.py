@@ -42,12 +42,9 @@ sorteios = []
 skips = 0
 
 
-def get_sorteio(tr):
-    # print('-------------------------------------------')
+def create_sorteio(tr):
     sk = 0
     attr = [td.text for td in tr if td != "\n"]
-
-    # print(attr)
 
     data = {
         'concurso': attr[0],
@@ -79,23 +76,27 @@ def get_sorteio(tr):
     return Sorteio(data=data), sk
 
 
+def get_sorteio(id_concurso):
+    return [sorteio for sorteio in sorteios if sorteio.get_concurso() == id_concurso]
+
+
 for tr in trs:
 
     if skips > 0:
         skips -= 1
 
         if len(tr) > 3:
-            s, skips = get_sorteio(tr)
+            s, skips = create_sorteio(tr)
 
             sorteios.append(s)
 
     else:
 
-        s, skips = get_sorteio(tr)
+        s, skips = create_sorteio(tr)
 
         sorteios.append(s)
 
-        # print('-------------------------------------------')
-
 print(str(len(sorteios)) + ' importados.')
 
+
+print(get_sorteio("2017"))

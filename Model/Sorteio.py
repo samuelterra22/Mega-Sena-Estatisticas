@@ -43,8 +43,11 @@ class Sorteio(object):
         self._dezena_6 = data['dezena_6']
         self._arrecadacao_total = data['arrecadacao_total']
         self._ganhadores_sena = data['ganhadores_sena']
-        self._cidade = data['cidade']
-        self._uf = data['uf']
+
+        self._cidade = [] if data['cidade'] is None or data['cidade'] == '' or data['cidade'] == '&nbsp' else data[
+            'cidade']
+
+        self._uf = [] if data['uf'] is None or data['uf'] == '' or data['uf'] == '&nbsp' else data['uf']
         self._rateio_sena = data['rateio_sena']
         self._ganhadores_quina = data['ganhadores_quina']
         self._rateio_quina = data['rateio_quina']
