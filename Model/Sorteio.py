@@ -20,8 +20,8 @@ class Sorteio(object):
         data['dezena_6']: Sexta dezena do Sorteio.
         data['arrecadacao_total']: Arrecadacao total do Sorteio.
         data['ganhadores_sena']: Quantidade dos ganhadores do Sorteio.
-        data['cidade']: Cidade dos ganhadores do Sorteio.
-        data['uf']: UF dos ganhadores dos Sorteio.
+        data['cidades']: Cidade dos ganhadores do Sorteio.
+        data['ufs']: UF dos ganhadores dos Sorteio.
         data['rateio_sena']: Rateio do Sena.
         data['ganhadores_quina']: Quantidade de ganhadores da Quina.
         data['rateio_quina']: Rateio da Quina.
@@ -44,10 +44,10 @@ class Sorteio(object):
         self._arrecadacao_total = data['arrecadacao_total']
         self._ganhadores_sena = data['ganhadores_sena']
 
-        self._cidade = [] if data['cidade'] is None or data['cidade'] == '' or data['cidade'] == '&nbsp' else data[
-            'cidade']
+        self._cidades = [] if data['cidades'] is None or data['cidades'] == '' or data['cidades'] == '&nbsp' else data[
+            'cidades']
 
-        self._uf = [] if data['uf'] is None or data['uf'] == '' or data['uf'] == '&nbsp' else data['uf']
+        self._ufs = [] if data['ufs'] is None or data['ufs'] == '' or data['ufs'] == '&nbsp' else data['ufs']
         self._rateio_sena = data['rateio_sena']
         self._ganhadores_quina = data['ganhadores_quina']
         self._rateio_quina = data['rateio_quina']
@@ -198,33 +198,65 @@ class Sorteio(object):
         """
         self._ganhadores_sena = ganhadores_sena
 
-    def get_cidade(self):
+    def get_cidades(self):
         """
         Metodo responsavel por retornar as cidades do Sorteio.
         :return: Cidade do Sorteio.
         """
-        return self._ganhadores_sena
+        return self._cidades
 
-    def set_cidade(self, cidade):
+    def set_cidades(self, cidades):
         """
         Metodo responsavel por setar as cidades do Sorteio.
         :return: None.
         """
-        self._cidade = cidade
+        self._cidades = cidades
 
-    def get_uf(self):
+    def add_cidade(self, cidade):
+        """
+        Metodo responsavel por adicionar cidades ao Sorteio.
+        :return: Lista de cidades do sorteio.
+        """
+        self._cidades.append(cidade)
+        return self._cidades
+
+    def remove_cidade(self, cidade):
+        """
+        Metodo responsavel por remover cidades ao Sorteio.
+        :return: Lista de cidades do sorteio.
+        """
+        self._cidades.remove(cidade)
+        return self._cidades
+
+    def get_ufs(self):
         """
         Metodo responsavel por retornar os UFs do Sorteio.
         :return: UFs do Sorteio.
         """
-        return self._ganhadores_sena
+        return self._ufs
 
-    def set_uf(self, uf):
+    def set_ufs(self, ufs):
         """
         Metodo responsavel por setar os UFs do Sorteio.
         :return: None.
         """
-        self._uf = uf
+        self._ufs = ufs
+
+    def add_uf(self, uf):
+        """
+        Metodo responsavel por adicionar ufs ao Sorteio.
+        :return: Lista de ufs do sorteio.
+        """
+        self._ufs.append(uf)
+        return self._ufs
+
+    def remove_uf(self, uf):
+        """
+        Metodo responsavel por remover ufs ao Sorteio.
+        :return: Lista de ufs do sorteio.
+        """
+        self._ufs.remove(uf)
+        return self._ufs
 
     def get_rateio_sena(self):
         """
@@ -364,8 +396,8 @@ class Sorteio(object):
             "Dezena 6": str(self.get_dezena_6()),
             "Arrecadacao total": str(self.get_arrecadacao_total()),
             "Ganhadores sena": str(self.get_ganhadores_sena()),
-            "Cidade(s)": str(self.get_cidade()),
-            "UF(s)": str(self.get_uf()),
+            "Cidade(s)": str(self.get_cidades()),
+            "UF(s)": str(self.get_ufs()),
             "Rateio": str(self.get_rateio_sena()),
             "Sena": str(self.get_ganhadores_sena()),
             "Ganhadores quina": str(self.get_ganhadores_quina()),
