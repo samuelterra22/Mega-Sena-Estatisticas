@@ -5,6 +5,8 @@ import zipfile
 import bs4
 import requests
 
+from Model.Sorteio import Sorteio
+
 FILE_PATH = "resultados.zip"
 INSIDE_FILENAME = "d_megasc.htm"
 URL = "http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_mgsasc.zip"
@@ -39,45 +41,61 @@ sorteios = []
 
 skips = 0
 
+
+def get_sorteio(tr):
+    # print('-------------------------------------------')
+    sk = 0
+    attr = [td.text for td in tr if td != "\n"]
+
+    # print(attr)
+
+    data = {
+        'concurso': attr[0],
+        'data_sorteio': attr[1],
+        'dezena_1': attr[2],
+        'dezena_2': attr[3],
+        'dezena_3': attr[4],
+        'dezena_4': attr[5],
+        'dezena_5': attr[6],
+        'dezena_6': attr[7],
+        'arrecadacao_total': attr[8],
+        'ganhadores_sena': attr[9],
+        'cidade': attr[10],
+        'uf': attr[11],
+        'rateio_sena': attr[12],
+        'ganhadores_quina': attr[13],
+        'rateio_quina': attr[14],
+        'ganhadores_quadra': attr[15],
+        'rateio_quadra': attr[16],
+        'acumulado': attr[17],
+        'valor_acumulado': attr[18],
+        'estimativa_premio': attr[19],
+        'acumulado_mega_da_virada': attr[20]
+    }
+
+    if int(attr[9]) > 1:
+        sk = int(attr[9]) - 1
+
+    return Sorteio(data=data), sk
+
+
 for tr in trs:
 
     if skips > 0:
         skips -= 1
-        print(tr)
-        continue
+
+        if len(tr) > 3:
+            s, skips = get_sorteio(tr)
+
+            sorteios.append(s)
+
     else:
 
-        print('-------------------------------------------')
+        s, skips = get_sorteio(tr)
 
-        attr = [td.text for td in tr if td != "\n"]
+        sorteios.append(s)
 
-        print(attr)
+        # print('-------------------------------------------')
 
-        data = {
-            'concurso': attr[0],
-            'data_sorteio': attr[1],
-            'dezena_1': attr[2],
-            'dezena_2': attr[3],
-            'dezena_3': attr[4],
-            'dezena_4': attr[5],
-            'dezena_5': attr[6],
-            'dezena_6': attr[7],
-            'arrecadacao_total': attr[8],
-            'ganhadores_sena': attr[9],
-            'cidade': attr[10],
-            'uf': attr[11],
-            'rateio_sena': attr[12],
-            'ganhadores_quina': attr[13],
-            'rateio_quina': attr[14],
-            'ganhadores_quadra': attr[15],
-            'rateio_quadra': attr[16],
-            'acumulado': attr[17],
-            'valor_acumulado': attr[18],
-            'estimativa_premio': attr[19],
-            'acumulado_mega_da_virada': attr[20]
-        }
+print(str(len(sorteios)) + ' importados.')
 
-        if int(attr[9]) > 1:
-            skips = int(attr[9]) - 1
-
-        print('-------------------------------------------')
