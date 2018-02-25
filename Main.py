@@ -77,7 +77,8 @@ def create_sorteio(tr):
 
 
 def get_sorteio(id_concurso):
-    return [sorteio for sorteio in sorteios if sorteio.get_concurso() == id_concurso]
+    s = [sorteio for sorteio in sorteios if sorteio.get_concurso() == id_concurso]
+    return s[0] if len(s) > 0 else None
 
 
 for tr in trs:
@@ -98,5 +99,4 @@ for tr in trs:
 
 print(str(len(sorteios)) + ' importados.')
 
-
-print(get_sorteio("2017"))
+print(get_sorteio("2017").to_json())

@@ -351,3 +351,29 @@ class Sorteio(object):
         :return: None.
         """
         self._acumulado_mega_da_virada = acumulado_mega_da_virada
+
+    def to_json(self):
+        return {
+            "Concurso": str(self.get_concurso()),
+            "Data sorteio": str(self.get_data_sorteio()),
+            "Dezena 1": str(self.get_dezena_1()),
+            "Dezena 2": str(self.get_dezena_2()),
+            "Dezena 3": str(self.get_dezena_3()),
+            "Dezena 4": str(self.get_dezena_4()),
+            "Dezena 5": str(self.get_dezena_5()),
+            "Dezena 6": str(self.get_dezena_6()),
+            "Arrecadacao total": str(self.get_arrecadacao_total()),
+            "Ganhadores sena": str(self.get_ganhadores_sena()),
+            "Cidade(s)": str(self.get_cidade()),
+            "UF(s)": str(self.get_uf()),
+            "Rateio": str(self.get_rateio_sena()),
+            "Sena": str(self.get_ganhadores_sena()),
+            "Ganhadores quina": str(self.get_ganhadores_quina()),
+            "Rateio quina": str(self.get_rateio_quina()),
+            "Ganhadores quadra": str(self.get_ganhadores_quadra()),
+            "Rateio quadra": str(self.get_rateio_quadra()),
+            "Acumulado": str(self.get_acumulado()),
+            "Valor acumulado": str(self.get_valor_acumulado()),
+            "Estimativa premio": str(self.get_estimativa_premio()),
+            "Acumulado mega da virada": str(self.get_acumulado_mega_da_virada())
+        }
