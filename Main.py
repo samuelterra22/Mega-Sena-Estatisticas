@@ -37,41 +37,47 @@ del trs[0]
 
 sorteios = []
 
-shiffts = 0
+skips = 0
 
 for tr in trs:
-    print('-------------------------------------------')
 
-    attr = [td.text for td in tr if td != "\n"]
+    if skips > 0:
+        skips -= 1
+        print(tr)
+        continue
+    else:
 
-    data = {
-        'concurso': attr[0],
-        'data_sorteio': attr[1],
-        'dezena_1': attr[2],
-        'dezena_2': attr[3],
-        'dezena_3': attr[4],
-        'dezena_4': attr[5],
-        'dezena_5': attr[6],
-        'dezena_6': attr[7],
-        'arrecadacao_total': attr[8],
-        'ganhadores_sena': attr[9],
-        'cidade': attr[10],
-        'uf': attr[11],
-        'rateio_sena': attr[12],
-        'ganhadores_quina': attr[13],
-        'rateio_quina': attr[14],
-        'ganhadores_quadra': attr[15],
-        'rateio_quadra': attr[16],
-        'acumulado': attr[17],
-        'valor_acumulado': attr[18],
-        'estimativa_premio': attr[19],
-        'acumulado_mega_da_virada': attr[20]
-    }
+        print('-------------------------------------------')
 
-    if int(attr[9]) > 1:
-        shiffts = int(attr[9])
+        attr = [td.text for td in tr if td != "\n"]
 
-        for _ in range(shiffts):
-            tr.next()
+        print(attr)
 
-    print('-------------------------------------------')
+        data = {
+            'concurso': attr[0],
+            'data_sorteio': attr[1],
+            'dezena_1': attr[2],
+            'dezena_2': attr[3],
+            'dezena_3': attr[4],
+            'dezena_4': attr[5],
+            'dezena_5': attr[6],
+            'dezena_6': attr[7],
+            'arrecadacao_total': attr[8],
+            'ganhadores_sena': attr[9],
+            'cidade': attr[10],
+            'uf': attr[11],
+            'rateio_sena': attr[12],
+            'ganhadores_quina': attr[13],
+            'rateio_quina': attr[14],
+            'ganhadores_quadra': attr[15],
+            'rateio_quadra': attr[16],
+            'acumulado': attr[17],
+            'valor_acumulado': attr[18],
+            'estimativa_premio': attr[19],
+            'acumulado_mega_da_virada': attr[20]
+        }
+
+        if int(attr[9]) > 1:
+            skips = int(attr[9]) - 1
+
+        print('-------------------------------------------')
