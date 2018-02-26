@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import json
+
 class Sorteio(object):
     """
     Esta classe representa um Sorteio realizado.
@@ -385,7 +387,7 @@ class Sorteio(object):
         self._acumulado_mega_da_virada = acumulado_mega_da_virada
 
     def to_json(self):
-        return {
+        return json.dumps({
             "Concurso": str(self.get_concurso()),
             "Data sorteio": str(self.get_data_sorteio()),
             "Dezena 1": str(self.get_dezena_1()),
@@ -408,4 +410,4 @@ class Sorteio(object):
             "Valor acumulado": str(self.get_valor_acumulado()),
             "Estimativa premio": str(self.get_estimativa_premio()),
             "Acumulado mega da virada": str(self.get_acumulado_mega_da_virada())
-        }
+        })
