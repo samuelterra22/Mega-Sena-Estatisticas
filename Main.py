@@ -40,6 +40,7 @@ del trs[0]
 sorteios = []
 
 skips = 0
+idx = None
 
 
 def create_sorteio(tr):
@@ -90,30 +91,41 @@ def exists_sorteio(id_concurso):
     return True if get_sorteio(id_concurso) else False
 
 
+def add_sorteio(sorteio):
+    sorteios.append(sorteio)
+
+
+def update_sorteio(id_concurso, cidade_uf):
+    if id_concurso is not None:
+        s = get_sorteio(id_concurso)
+        remove_sorteio(id_concurso)
+        s.add_cidade(cidade_uf[0])
+        s.add_uf(cidade_uf[1].replace('\n', ''))
+        add_sorteio(s)
+
+
 for tr in trs:
 
     if skips > 0:
 
+        # A linha da tabela diz que tem mais de um ganhador mas nao diz de onde
         if len(tr) > 3:
             s, skips = create_sorteio(tr)
+            idx = None
             sorteios.append(s)
 
+        # Decrementa o contados de pulos e atualiza o ultimo sorteio
         else:
             skips -= 1
-
-            print('-------------')
             cidade_uf = [td.text for td in tr if td != "\n"]
-            if len(cidade_uf) > 2:
-                print('shit')
-            print('-------------')
+            update_sorteio(idx, cidade_uf)
 
     else:
 
         s, skips = create_sorteio(tr)
+        if skips > 0:
+            idx = s.get_concurso()
         sorteios.append(s)
 
 print(str(len(sorteios)) + ' importados.')
-print(exists_sorteio("2018"))
-print(str(len(sorteios)) + ' importados.')
-
-# print(get_sorteio("2017").to_json())
+# print(get_sorteio("213"))
