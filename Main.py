@@ -1,4 +1,5 @@
 # -*- encoding: utf-8 -*-
+# !/usr/bin/python3.5
 
 import zipfile
 
@@ -128,4 +129,4 @@ for tr in trs:
         sorteios.append(s)
 
 print(str(len(sorteios)) + ' importados.')
-# print(get_sorteio("213"))
+# print(get_sorteio("238").get_ufs())

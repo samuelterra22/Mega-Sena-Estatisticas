@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 
+
 class Sorteio(object):
     """
     Esta classe representa um Sorteio realizado.
@@ -47,7 +48,7 @@ class Sorteio(object):
         self._ganhadores_sena = data['ganhadores_sena']
 
         self._cidades = [] if data['cidades'] is None or data['cidades'] == '' or data['cidades'] == '&nbsp' else [data[
-            'cidades']]
+                                                                                                                       'cidades']]
 
         self._ufs = [] if data['ufs'] is None or data['ufs'] == '' or data['ufs'] == '&nbsp' else [data['ufs']]
         self._rateio_sena = data['rateio_sena']
