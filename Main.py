@@ -81,22 +81,39 @@ def get_sorteio(id_concurso):
     return s[0] if len(s) > 0 else None
 
 
+def remove_sorteio(id_concurso):
+    s = get_sorteio(id_concurso)
+    sorteios.remove(s) if s is not None else None
+
+
+def exists_sorteio(id_concurso):
+    return True if get_sorteio(id_concurso) else False
+
+
 for tr in trs:
 
     if skips > 0:
-        skips -= 1
 
         if len(tr) > 3:
             s, skips = create_sorteio(tr)
-
             sorteios.append(s)
+
+        else:
+            skips -= 1
+
+            print('-------------')
+            cidade_uf = [td.text for td in tr if td != "\n"]
+            if len(cidade_uf) > 2:
+                print('shit')
+            print('-------------')
 
     else:
 
         s, skips = create_sorteio(tr)
-
         sorteios.append(s)
 
 print(str(len(sorteios)) + ' importados.')
+print(exists_sorteio("2018"))
+print(str(len(sorteios)) + ' importados.')
 
-print(get_sorteio("2017").to_json())
+# print(get_sorteio("2017").to_json())
