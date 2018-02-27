@@ -28,7 +28,7 @@ if zipfile.is_zipfile(FILE_PATH):
 
 print("[-] Abrindo arquivo para buscar os resultados...")
 
-with open("d_megasc.htm", 'r', encoding="utf8", errors='ignore') as f:
+with open(INSIDE_FILENAME, 'r', encoding="utf8", errors='ignore') as f:
     content = f.read()
 
 soup = bs4.BeautifulSoup(content, "lxml")
