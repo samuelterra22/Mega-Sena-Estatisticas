@@ -12,6 +12,24 @@ FILE_PATH = "resultados.zip"
 INSIDE_FILENAME = "d_megasc.htm"
 URL = "http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_mgsasc.zip"
 
+# Mega sena
+# http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip
+
+# Lotofácil
+# http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_lotfac.zip
+
+# Quina
+# http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_quina.zip
+
+# Dupla Sena 1 e 2
+# http://www1.caixa.gov.br/loterias/_arquivos/loterias/d_dplsen.zip
+
+# Lotomania
+# http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_lotoma.zip
+
+# Timemania
+# http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_timema.zip
+
 print("[-] Baixano o arquivo de resultados...")
 
 f = requests.get(URL)

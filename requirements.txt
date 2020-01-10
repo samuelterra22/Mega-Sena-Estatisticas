@@ -6,6 +6,6 @@ idna==2.8
 lxml==4.4.2
 pip==19.3.1
 requests==2.22.0
-setuptools==42.0.2
+setuptools==44.0.0
 soupsieve==1.9.5
 urllib3==1.25.7
